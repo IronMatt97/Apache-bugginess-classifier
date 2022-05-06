@@ -1,17 +1,23 @@
 package org.deliverable1;
 
 import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.api.InitCommand;
 import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.lib.RepositoryBuilder;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.treewalk.TreeWalk;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -23,8 +29,9 @@ public class Main {
     static ArrayList<Release> releases;
     static ArrayList<JiraTicket> tickets;
     static ArrayList<Commit> commits;
+    static ArrayList<JavaFile> javaFiles;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         String projName = "AVRO";
         //Ottieni la lista delle versioni
         releases = getReleases(projName);
@@ -37,9 +44,50 @@ public class Main {
         adjustFV();
         adjustIV();
         //Arrivati a questo punto nei ticket ci sono i commit associati, e tutte le informazioni su OV/AV/IV/FV
+        javaFiles = createJavaFilesList(projName);
 
+        BufferedWriter writer = new BufferedWriter(new FileWriter("classes.txt", true));
+        for(JavaFile j:javaFiles) {
+            writer.append(j.getVersionIndex()+"--->"+j.getClassName()+"\n");
+
+        }
+        writer.close();
     }
 
+    public static ArrayList<JavaFile> createJavaFilesList(String projName){
+        Path repoPath = Paths.get("/home/matteo/Documenti/Workspaces/ISW2/"+projName+"/"+projName.toLowerCase()+"/.git");
+        ArrayList<JavaFile> javaFiles = new ArrayList<>();
+        ArrayList<String> javaFilesNamesList = new ArrayList<>();
+        InitCommand init = Git.init();
+        init.setDirectory(repoPath.toFile());
+        try (Git git = Git.open(repoPath.toFile()))
+        {
+            for (Commit commit : commits)
+            {
+                if(releases.indexOf(commit.getRelease())<releases.size()/2) {//Tutto questo va fatto solo per la prima metà
+                    System.out.println(commits.indexOf(commit) + " out of " + commits.size()/2);
+                    ObjectId treeId = commit.getCommitObject().getTree();
+                    try (TreeWalk treeWalk = new TreeWalk(git.getRepository())) {
+                        treeWalk.reset(treeId);
+                        treeWalk.setRecursive(true);
+                        while (treeWalk.next()) {
+                            //TODO Sistema l'inserimento delle classi nella lista, o ne aggiungi troppe controllando !f o troppi pochi se vedi solo il nome
+                            if ((treeWalk.getPathString().endsWith(".java")) && !javaFilesNamesList.contains(treeWalk.getPathString())) {
+                                JavaFile f = new JavaFile(treeWalk.getPathString(), releases.indexOf(commit.getRelease()));
+                                javaFilesNamesList.add(treeWalk.getPathString());
+                                javaFiles.add(f);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        catch (IOException e)
+        {
+            throw new IllegalStateException("error creating files list");
+        }
+        return javaFiles;
+    }
     public static void adjustIV(){
         int windowSize = tickets.size()/100;
         int p;
@@ -71,11 +119,16 @@ public class Main {
                 //Calcolo nuovo AV
                 setAffectedVersions(ticket,ticket.getIV().getVersionNumber());
             }
-            printTicketInfo(ticket);
         }
     }
     public static ArrayList<JiraTicket> reverseList(ArrayList<JiraTicket> initialList){
         ArrayList<JiraTicket> newList = new ArrayList<>();
+        for(int i = initialList.size()-1; i>=0; i--)
+            newList.add(initialList.get(i));
+        return newList;
+    }
+    public static ArrayList<Commit> reverseList2(ArrayList<Commit> initialList){
+        ArrayList<Commit> newList = new ArrayList<>();
         for(int i = initialList.size()-1; i>=0; i--)
             newList.add(initialList.get(i));
         return newList;
