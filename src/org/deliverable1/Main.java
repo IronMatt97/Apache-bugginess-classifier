@@ -3,11 +3,17 @@ package org.deliverable1;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.InitCommand;
 import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.lib.ObjectId;
-import org.eclipse.jgit.lib.Repository;
-import org.eclipse.jgit.lib.RepositoryBuilder;
+import org.eclipse.jgit.diff.DiffEntry;
+import org.eclipse.jgit.diff.DiffFormatter;
+import org.eclipse.jgit.diff.RawTextComparator;
+import org.eclipse.jgit.lib.*;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevWalk;
+import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
+import org.eclipse.jgit.treewalk.CanonicalTreeParser;
+import org.eclipse.jgit.treewalk.EmptyTreeIterator;
 import org.eclipse.jgit.treewalk.TreeWalk;
+import org.eclipse.jgit.util.io.DisabledOutputStream;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,8 +27,7 @@ import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Locale;
+import java.util.*;
 
 
 public class Main {
@@ -44,16 +49,308 @@ public class Main {
         adjustFV();
         adjustIV();
         //Arrivati a questo punto nei ticket ci sono i commit associati, e tutte le informazioni su OV/AV/IV/FV
-        javaFiles = createJavaFilesList(projName);
 
-        BufferedWriter writer = new BufferedWriter(new FileWriter("classes.txt", true));
-        for(JavaFile j:javaFiles) {
-            writer.append(j.getVersionIndex()+"--->"+j.getClassName()+"\n");
+        //Creo la lista dei file toccati
+        javaFiles = createJavaFilesList(projName);
+        //Per la metà delle versioni associo i valori delle metriche
+        for(int i = 1; i< releases.size()/2; i++){
+            setJavaFilesInfo(releases.get(i),projName);
+        }
+        //Scrivi il csv
+        generateCSVMetrics(projName);
+    }
+    public static void generateCSVMetrics(String projName)
+    {
+
+        String outname = projName + "Metrics.csv";
+        String b = "";
+
+        try(FileWriter fileWriter = new FileWriter(outname))
+        {
+            fileWriter.append("VERSION_INDEX;FILE_NAME;LOC;LOC_ADDED;MAX_LOC_ADDED;AVG_LOC_ADDED;NR;NFIX;AUTHORS;CHURN;MAX_CHURN;BUGGYNESS");
+            fileWriter.append("\n");
+            for (Release r : releases.subList(0,releases.size()/2))
+            {
+                for(JavaFile f : r.getJavaFiles()){
+
+                    if(f.isBuggy())
+                        b = "Yes";
+                    else
+                        b = "No";
+
+                    fileWriter.append(r.getVersionNumber());
+                    fileWriter.append(";");
+                    fileWriter.append(f.getClassName());
+                    fileWriter.append(";");
+                    fileWriter.append(f.getLOC().toString());
+                    fileWriter.append(";");
+                    fileWriter.append(f.getLOCAdded().toString());
+                    fileWriter.append(";");
+                    fileWriter.append(f.getMaxLOCAdded().toString());
+                    fileWriter.append(";");
+                    fileWriter.append(f.getAVGLOCAdded().toString());
+                    fileWriter.append(";");
+                    fileWriter.append(f.getNR().toString());
+                    fileWriter.append(";");
+                    fileWriter.append(f.getNFIX().toString());
+                    fileWriter.append(";");
+                    fileWriter.append(f.getNAuth().toString());
+                    fileWriter.append(";");
+                    fileWriter.append(f.getChurn().toString());
+                    fileWriter.append(";");
+                    fileWriter.append(f.getMaxChurn().toString());
+                    fileWriter.append(";");
+                    fileWriter.append(b);
+                    fileWriter.append("\n");
+
+                }
+            }
+        }
+        catch (IOException e)
+        {
+            throw new IllegalStateException("Error in csv Writer");
+        }
+    }
+    public static void setJavaFilesInfo(Release r, String projName)
+    {
+        //A partire dalla lista di classi imposto in questo metodo le informazioni per le metriche
+        String path = "/home/matteo/Documenti/Workspaces/ISW2/"+projName+"/"+projName.toLowerCase()+"/.git";
+        Path repoPath = Paths.get(path);
+        InitCommand init = Git.init();
+        init.setDirectory(repoPath.toFile());
+        try (Git git = Git.open(repoPath.toFile()))
+        {
+            Release prevRelease = releases.get(releases.indexOf(r)-1);
+            for (Commit commit : prevRelease.getCommits())//Prendi i commit della versione precedente
+            {
+                Repository repository = git.log().all().getRepository();
+                TreeWalk tw = initializeTreeWalk(repository,commit);
+                searchJavaFiles(tw,repository,commit,prevRelease,path);
+            }
+        }
+        catch (IOException e)
+        {
+            throw new IllegalStateException("error in setting infos");
+        }
+    }
+    private static void searchJavaFiles(TreeWalk tw, Repository repository, Commit commit,Release r, String path)
+    {
+        //Metodo per ricercare file java
+        try
+        {
+            setBuggyness(commit,r,path);
+            while (tw.next())
+            {
+                if ((tw.getPathString().contains(".java")))
+                {
+                    //Ho trovato una classe Java in un determinato commit
+                    System.out.println("Analyzing Java file...");
+                    setInfos(r,tw,repository,commit);
+
+                }
+            }
+            List<DiffEntry> diffs = getDiffs(commit.getCommitObject(), repository);
+            if (diffs != null)
+                checkNR(diffs,r,commit);
 
         }
-        writer.close();
+        catch (IOException e)
+        {
+            //throw new IllegalStateException("TreeWalk exploration encountered a problem.");
+        }
+    }
+    private static void checkNR(List<DiffEntry> diffs, Release r, Commit commit)
+    {
+
+
+        for (DiffEntry diff : diffs)
+        {
+            String type = diff.getChangeType().toString();
+            if (diff.toString().contains(".java"))
+            {
+                //se la classe è deleted o modified
+                String fileName;
+                if (type.equals("DELETE"))
+                    fileName = diff.getOldPath();//se è stata cancellata devo prendere il path di prima
+                else
+                    fileName = diff.getNewPath();
+                for(JavaFile file : r.getJavaFiles())
+                {
+                    if(file.getClassName().equals(fileName))
+                    {
+                        file.increaseNR();
+                    }
+                }
+            }
+        }
+    }
+    private static void setInfos(Release r, TreeWalk tw, Repository repository, Commit commit)
+    {
+        //Provo a fare filelist divisa in versioni
+        for (JavaFile file : r.getJavaFiles())
+        {
+            if(file.getClassName().equals(tw.getPathString()))
+            {
+                //Ho trovato il nome di una classe nella mia lista file
+                System.out.println("Computing metrics for file versions ");
+                setLOC(tw,repository,file);
+                if(commit.getCommitObject().getFullMessage().contains("fix")
+                        && !commit.getCommitObject().getFullMessage().contains("prefix")
+                        && !commit.getCommitObject().getFullMessage().contains("postfix"))
+                    file.increaseNFIX();
+
+                String authname = commit.getCommitObject().getAuthorIdent().getName();
+                if(!file.getAuthors().contains(authname))
+                    file.addAuthor(authname);
+            }
+        }
+    }
+    private static void setLOC(TreeWalk tw, Repository repository, JavaFile f)
+    {
+        //Imposto le metriche relative a linee di codice
+        ObjectId objectId = tw.getObjectId(0);
+        ObjectLoader loader;
+        try {
+            loader = repository.open(objectId);
+
+            String content = new String(loader.getBytes(), StandardCharsets.US_ASCII);
+
+            String[] lines = content.split("\r\n|\r|\n");
+            Integer addedLines = 0;
+            Integer removedLines = 0;
+            Integer[] addedAndRemovedLines = setAddedAndRemovedLines(content,f.getText(),addedLines,removedLines);
+            f.setText(content);
+
+            f.setLOCAdded(f.getLOCAdded() + addedAndRemovedLines[0]);
+            f.addLOCPerRevision(addedAndRemovedLines[0]);
+            f.setChurn(f.getChurn() + (addedAndRemovedLines[0]-addedAndRemovedLines[1]));
+            f.setLOC(lines.length);
+            if (addedAndRemovedLines[0] > f.getMaxLOCAdded())
+                f.setMaxLOCAdded(addedAndRemovedLines[0]);
+            if (addedAndRemovedLines[0]-addedAndRemovedLines[1] > f.getMaxChurn())
+                f.setMaxChurn(addedAndRemovedLines[0]-addedAndRemovedLines[1]);
+
+        }
+        catch (IOException e)
+        {
+            e.getMessage();
+        }
+    }
+    private static Integer[] setAddedAndRemovedLines(String presentTXT,String previousTXT, Integer addedLines,Integer removedLines)
+    {
+        ArrayList <String> text = new ArrayList<>();
+        ArrayList <String> ptext = new ArrayList<>();
+
+        Collections.addAll(text, presentTXT.split("\r\n|\r|\n"));
+        Collections.addAll(ptext, previousTXT.split("\r\n|\r|\n"));
+
+        //Ho acquisito la lista di stringhe del testo della stessa classe in due revisioni diverse
+        for(String s1:ptext)
+            if (!text.contains(s1))
+                removedLines++;
+
+        for(String s2:text)
+            if (!ptext.contains(s2))
+                addedLines++;
+        //Ora posso mettere in un vettore le righe aggiunte e rimosse rispetto a prima
+        Integer[] v = new Integer[2];
+        v[0] = addedLines;
+        v[1] = removedLines;
+        return v;
+    }
+    private static void setBuggyness(Commit rev, Release r, String path) throws IOException
+    {
+        //Questo metodo viene eseguito per ogni bug
+        for (JiraTicket ticket : tickets)
+        {//se il ticket non ha av non potrà avere buggyness
+            if(ticket.getAV()!=null)
+            {//Quindi qualora il bug effettivamente affligga delle versioni
+                String key = ticket.getKey();
+                if(rev.getCommitObject().getFullMessage().contains(key))
+                {//Prendo il commit solo se riguarda quel bug
+                    FileRepositoryBuilder repositoryBuilder = new FileRepositoryBuilder();
+                    Repository repository = repositoryBuilder.setGitDir(new File(path+"/.git")).readEnvironment().findGitDir().setMustExist(true).build();
+                    List<DiffEntry> diffs = getDiffs(rev.getCommitObject(), repository);
+                    //prendo i diffs e se non sono nulli, li analizzo
+                    if (diffs != null)
+                        analyzeDiffs(diffs,r);
+                }
+            }
+        }
     }
 
+    private static void analyzeDiffs(List<DiffEntry> diffs, Release r)
+    {
+        for (DiffEntry diff : diffs)//Per ogni diff
+        {
+            String type = diff.getChangeType().toString();
+            if ((type.equals("DELETE") || type.equals("MODIFY")) && diff.toString().contains(".java"))
+            {
+                //se la classe è deleted o modified
+                String fileName;
+                if (diff.getChangeType() == DiffEntry.ChangeType.DELETE)
+                    fileName = diff.getOldPath();//se è stata cancellata devo prendere il path di prima
+                else
+                    fileName = diff.getNewPath();
+                checkCommAndFiles(fileName, r);//Controllo dove sta la classe toccata nel commit
+            }
+        }
+    }
+    private static void checkCommAndFiles(String fileName,Release r)
+    {
+        for (JavaFile javaFile : r.getJavaFiles())
+        {
+            //per tutti i file in ogni versione
+            if(javaFile.getClassName().equals(fileName))
+            {
+                //Se ritrovo quel file nella lista dei diffs è buggy
+                javaFile.setBuggyness(true);
+            }
+        }
+    }
+    private static List<DiffEntry> getDiffs(RevCommit commit, Repository repository) throws IOException
+    {
+        List<DiffEntry> diffs;
+        DiffFormatter df = new DiffFormatter(DisabledOutputStream.INSTANCE);
+        df.setRepository(repository);
+        df.setDiffComparator(RawTextComparator.DEFAULT);
+        df.setContext(0);
+        df.setDetectRenames(true);
+        if (commit.getParentCount() != 0)
+        {
+            RevCommit parent = (RevCommit) commit.getParent(0).getId();
+            diffs = df.scan(parent.getTree(), commit.getTree());
+        }
+        else
+        {
+            RevWalk rw = new RevWalk(repository);
+            ObjectReader reader = rw.getObjectReader();
+            diffs = df.scan(new EmptyTreeIterator(), new CanonicalTreeParser(null, reader, commit.getTree()));
+            rw.close();
+        }
+        df.close();
+        return diffs;
+    }
+    private static TreeWalk initializeTreeWalk(Repository repository, Commit commit)
+    {
+        TreeWalk tw = new TreeWalk(repository);
+        tw.setRecursive(true);
+        RevCommit commitToCheck = commit.getCommitObject();
+        try
+        {
+            tw.addTree(commitToCheck.getTree());
+
+            for (RevCommit parent : commitToCheck.getParents())
+            {
+                tw.addTree(parent.getTree());
+            }
+        }
+        catch (IOException e)
+        {
+            throw new IllegalStateException("An error has occurred during commit file trees exploration");
+        }
+        return tw;
+    }
     public static ArrayList<JavaFile> createJavaFilesList(String projName){
         Path repoPath = Paths.get("/home/matteo/Documenti/Workspaces/ISW2/"+projName+"/"+projName.toLowerCase()+"/.git");
         ArrayList<JavaFile> javaFiles = new ArrayList<>();
@@ -71,11 +368,11 @@ public class Main {
                         treeWalk.reset(treeId);
                         treeWalk.setRecursive(true);
                         while (treeWalk.next()) {
-                            //TODO Sistema l'inserimento delle classi nella lista, o ne aggiungi troppe controllando !f o troppi pochi se vedi solo il nome
-                            if ((treeWalk.getPathString().endsWith(".java")) && !javaFilesNamesList.contains(treeWalk.getPathString())) {
+                            if ((treeWalk.getPathString().endsWith(".java")) && !javaFilesNamesList.contains(commit.getRelease().getVersionNumber()+treeWalk.getPathString())) {
                                 JavaFile f = new JavaFile(treeWalk.getPathString(), releases.indexOf(commit.getRelease()));
-                                javaFilesNamesList.add(treeWalk.getPathString());
+                                javaFilesNamesList.add(commit.getRelease().getVersionNumber()+treeWalk.getPathString());
                                 javaFiles.add(f);
+                                releases.get(releases.indexOf(commit.getRelease())).addJavaFile(f);//Aggiungo il javaFile alla release
                             }
                         }
                     }
@@ -193,6 +490,7 @@ public class Main {
                 LocalDateTime commitDate = c.getCommitObject().getAuthorIdent().getWhen().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
                 c.setDate(commitDate);
                 c.setRelease(releaseAfterDate(commitDate));
+                releases.get(releases.indexOf(releaseAfterDate(commitDate))).addCommit(c);//Aggiunge il commit alla release
                 commits.add(c);
             }
             git.close();
