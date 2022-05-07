@@ -51,11 +51,18 @@ public class Main {
         //Arrivati a questo punto nei ticket ci sono i commit associati, e tutte le informazioni su OV/AV/IV/FV
 
         //Creo la lista dei file toccati
+        System.out.println("Creating file list");
         javaFiles = createJavaFilesList(projName);
         //Per la metà delle versioni associo i valori delle metriche
+        System.out.println("Computing metrics");
+
+
         for(int i = 1; i< releases.size()/2; i++){
             setJavaFilesInfo(releases.get(i),projName);
         }
+        System.out.println("Computing buggyness");
+        computeBuggyness();
+        System.out.println("buggyness checked");
         //Scrivi il csv
         generateCSVMetrics(projName);
     }
@@ -111,6 +118,20 @@ public class Main {
             throw new IllegalStateException("Error in csv Writer");
         }
     }
+    public static void computeBuggyness(){
+        for (JiraTicket t : tickets){
+            for (Commit c : t.getCommits()){
+                for (JavaFile f : c.getJavaFiles()){
+                    if (f.getVersionIndex() < releases.size()/2){
+                        for (Release r : t.getAV()){
+                            if(releases.indexOf(r) == f.getVersionIndex())
+                                f.setBuggyness(true);
+                        }
+                    }
+                }
+            }
+        }
+    }
     public static void setJavaFilesInfo(Release r, String projName)
     {
         //A partire dalla lista di classi imposto in questo metodo le informazioni per le metriche
@@ -138,13 +159,11 @@ public class Main {
         //Metodo per ricercare file java
         try
         {
-            setBuggyness(commit,r,path);
             while (tw.next())
             {
                 if ((tw.getPathString().contains(".java")))
                 {
                     //Ho trovato una classe Java in un determinato commit
-                    System.out.println("Analyzing Java file...");
                     setInfos(r,tw,repository,commit);
 
                 }
@@ -192,7 +211,7 @@ public class Main {
             if(file.getClassName().equals(tw.getPathString()))
             {
                 //Ho trovato il nome di una classe nella mia lista file
-                System.out.println("Computing metrics for file versions ");
+                commit.addJavaFile(file);
                 setLOC(tw,repository,file);
                 if(commit.getCommitObject().getFullMessage().contains("fix")
                         && !commit.getCommitObject().getFullMessage().contains("prefix")
@@ -258,56 +277,6 @@ public class Main {
         v[1] = removedLines;
         return v;
     }
-    private static void setBuggyness(Commit rev, Release r, String path) throws IOException
-    {
-        //Questo metodo viene eseguito per ogni bug
-        for (JiraTicket ticket : tickets)
-        {//se il ticket non ha av non potrà avere buggyness
-            if(ticket.getAV()!=null)
-            {//Quindi qualora il bug effettivamente affligga delle versioni
-                String key = ticket.getKey();
-                if(rev.getCommitObject().getFullMessage().contains(key))
-                {//Prendo il commit solo se riguarda quel bug
-                    FileRepositoryBuilder repositoryBuilder = new FileRepositoryBuilder();
-                    Repository repository = repositoryBuilder.setGitDir(new File(path+"/.git")).readEnvironment().findGitDir().setMustExist(true).build();
-                    List<DiffEntry> diffs = getDiffs(rev.getCommitObject(), repository);
-                    //prendo i diffs e se non sono nulli, li analizzo
-                    if (diffs != null)
-                        analyzeDiffs(diffs,r);
-                }
-            }
-        }
-    }
-
-    private static void analyzeDiffs(List<DiffEntry> diffs, Release r)
-    {
-        for (DiffEntry diff : diffs)//Per ogni diff
-        {
-            String type = diff.getChangeType().toString();
-            if ((type.equals("DELETE") || type.equals("MODIFY")) && diff.toString().contains(".java"))
-            {
-                //se la classe è deleted o modified
-                String fileName;
-                if (diff.getChangeType() == DiffEntry.ChangeType.DELETE)
-                    fileName = diff.getOldPath();//se è stata cancellata devo prendere il path di prima
-                else
-                    fileName = diff.getNewPath();
-                checkCommAndFiles(fileName, r);//Controllo dove sta la classe toccata nel commit
-            }
-        }
-    }
-    private static void checkCommAndFiles(String fileName,Release r)
-    {
-        for (JavaFile javaFile : r.getJavaFiles())
-        {
-            //per tutti i file in ogni versione
-            if(javaFile.getClassName().equals(fileName))
-            {
-                //Se ritrovo quel file nella lista dei diffs è buggy
-                javaFile.setBuggyness(true);
-            }
-        }
-    }
     private static List<DiffEntry> getDiffs(RevCommit commit, Repository repository) throws IOException
     {
         List<DiffEntry> diffs;
@@ -362,7 +331,6 @@ public class Main {
             for (Commit commit : commits)
             {
                 if(releases.indexOf(commit.getRelease())<releases.size()/2) {//Tutto questo va fatto solo per la prima metà
-                    System.out.println(commits.indexOf(commit) + " out of " + commits.size()/2);
                     ObjectId treeId = commit.getCommitObject().getTree();
                     try (TreeWalk treeWalk = new TreeWalk(git.getRepository())) {
                         treeWalk.reset(treeId);
@@ -371,6 +339,7 @@ public class Main {
                             if ((treeWalk.getPathString().endsWith(".java")) && !javaFilesNamesList.contains(commit.getRelease().getVersionNumber()+treeWalk.getPathString())) {
                                 JavaFile f = new JavaFile(treeWalk.getPathString(), releases.indexOf(commit.getRelease()));
                                 javaFilesNamesList.add(commit.getRelease().getVersionNumber()+treeWalk.getPathString());
+                                f.setVersionIndex(releases.indexOf(commit.getRelease()));
                                 javaFiles.add(f);
                                 releases.get(releases.indexOf(commit.getRelease())).addJavaFile(f);//Aggiungo il javaFile alla release
                             }
