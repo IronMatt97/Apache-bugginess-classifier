@@ -6,7 +6,6 @@ import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.diff.DiffEntry;
 import org.eclipse.jgit.diff.DiffFormatter;
 import org.eclipse.jgit.diff.RawTextComparator;
-import org.eclipse.jgit.lib.*;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
@@ -18,8 +17,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
 import java.io.*;
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
@@ -28,6 +27,19 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+
+
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import org.eclipse.jgit.lib.ObjectId;
+import org.eclipse.jgit.lib.ObjectLoader;
+import org.eclipse.jgit.lib.ObjectReader;
+import org.eclipse.jgit.lib.Repository;
+import org.eclipse.jgit.lib.RepositoryBuilder;
 
 
 public class Main {
@@ -55,14 +67,10 @@ public class Main {
         javaFiles = createJavaFilesList(projName);
         //Per la metà delle versioni associo i valori delle metriche
         System.out.println("Computing metrics");
-
-
-        for(int i = 1; i< releases.size()/2; i++){
+        for(int i = 1; i<= releases.size()/2; i++){
             setJavaFilesInfo(releases.get(i),projName);
         }
-        System.out.println("Computing buggyness");
-        computeBuggyness();
-        System.out.println("buggyness checked");
+        checkAffectedVersionsForBuggyness();
         //Scrivi il csv
         generateCSVMetrics(projName);
     }
@@ -84,8 +92,7 @@ public class Main {
                         b = "Yes";
                     else
                         b = "No";
-
-                    fileWriter.append(r.getVersionNumber());
+                    fileWriter.append(String.valueOf(releases.indexOf(r)));
                     fileWriter.append(";");
                     fileWriter.append(f.getClassName());
                     fileWriter.append(";");
@@ -118,22 +125,19 @@ public class Main {
             throw new IllegalStateException("Error in csv Writer");
         }
     }
-    public static void computeBuggyness(){
-        for (JiraTicket t : tickets){
-            for (Commit c : t.getCommits()){
+    public static void checkAffectedVersionsForBuggyness(){
+        for(JiraTicket t : tickets){
+            for(Commit c : t.getCommits()){
                 for (JavaFile f : c.getJavaFiles()){
-                    if (f.getVersionIndex() < releases.size()/2){
-                        for (Release r : t.getAV()){
-                            if(releases.indexOf(r) == f.getVersionIndex())
-                                f.setBuggyness(true);
-                        }
+                    for(Release r : t.getAV()){
+                        if(releases.indexOf(r) == f.getVersionIndex())
+                            f.setBuggyness(true);
                     }
                 }
             }
         }
     }
-    public static void setJavaFilesInfo(Release r, String projName)
-    {
+    public static void setJavaFilesInfo(Release r, String projName) throws IOException {
         //A partire dalla lista di classi imposto in questo metodo le informazioni per le metriche
         String path = "/home/matteo/Documenti/Workspaces/ISW2/"+projName+"/"+projName.toLowerCase()+"/.git";
         Path repoPath = Paths.get(path);
@@ -151,21 +155,20 @@ public class Main {
         }
         catch (IOException e)
         {
-            throw new IllegalStateException("error in setting infos");
+            throw new IOException(e);
         }
     }
-    private static void searchJavaFiles(TreeWalk tw, Repository repository, Commit commit,Release r, String path)
-    {
+    private static void searchJavaFiles(TreeWalk tw, Repository repository, Commit commit,Release r, String path) throws IOException {
         //Metodo per ricercare file java
         try
         {
+            setBuggyness(r,commit,path);
             while (tw.next())
             {
                 if ((tw.getPathString().contains(".java")))
                 {
                     //Ho trovato una classe Java in un determinato commit
                     setInfos(r,tw,repository,commit);
-
                 }
             }
             List<DiffEntry> diffs = getDiffs(commit.getCommitObject(), repository);
@@ -175,7 +178,77 @@ public class Main {
         }
         catch (IOException e)
         {
-            //throw new IllegalStateException("TreeWalk exploration encountered a problem.");
+            throw new IOException(e);
+        }
+    }
+    private static void setBuggyness(Release r, Commit rev, String path) throws IOException
+    {
+        //Questo metodo viene eseguito per ogni commit
+        for (JiraTicket ticket : tickets)
+        {//se il ticket non ha av non potrà avere buggyness
+            if(ticket.getAV()!=null)
+            {//Se trovo uno dei ticket
+                String key = ticket.getKey();
+
+                if(rev.getCommitObject().getFullMessage().contains(key))
+                {
+
+                    FileRepositoryBuilder repositoryBuilder = new FileRepositoryBuilder();
+
+                    Repository repository = repositoryBuilder.setGitDir(new File(path)).readEnvironment().findGitDir().setMustExist(true).build();
+
+                    List<DiffEntry> diffs = getDiffs(rev.getCommitObject(), repository);
+                    //prendo i diffs e se non sono nulli, li analizzo
+                    if (diffs != null){
+                        analyzeDiffs(diffs,r);
+                    }
+
+                }
+            }
+        }
+    }
+    private static void analyzeDiffs(List<DiffEntry> diffs, Release r)
+    {
+        for (DiffEntry diff : diffs)
+        {
+            String type = diff.getChangeType().toString();
+            if ((type.equals("DELETE") || type.equals("MODIFY")) && diff.toString().contains(".java"))
+            {
+                //se la classe è deleted o modified
+                String fileName;
+                if (diff.getChangeType() == DiffEntry.ChangeType.DELETE)
+                    fileName = diff.getOldPath();//se è stata cancellata devo prendere il path di prima
+                else
+                    fileName = diff.getNewPath();
+
+                checkCommAndFiles(fileName, r);
+            }
+        }
+    }
+
+    private static void checkCommAndFiles(String fileName,Release r)
+    {
+        for (JavaFile javaFile : r.getJavaFiles())
+        {
+            //per tutti i file in ogni versione
+            if(javaFile.getClassName().equals(fileName))
+            {
+                //Se ritrovo quel file nella lista dei diffs
+                //Arrivato qui devo prendere nella lista dei veri JavaFile quelli con nome javaFile e versione vcomm.getCommits().get(0).getCommitVersionIndex(); poiche essendo vcomm ordinato in 14 liste di commit associate a versioni diverse
+                //Quindi se nei diffs del commit ho trovato una classe potenzialmente buggy, ora devo controllare che la versione ed il nome corrispondano
+                checkEquals(javaFile, r);
+            }
+        }
+    }
+
+    private static void checkEquals(JavaFile javaFile, Release r)
+    {
+        for(JavaFile file : r.getJavaFiles())
+        {
+            if(file.getClassName().equals(javaFile.getClassName()) && file.getVersionIndex().equals(releases.indexOf(r.getCommits().get(0).getRelease())))
+            {
+                file.setBuggyness(true);
+            }
         }
     }
     private static void checkNR(List<DiffEntry> diffs, Release r, Commit commit)
@@ -211,7 +284,8 @@ public class Main {
             if(file.getClassName().equals(tw.getPathString()))
             {
                 //Ho trovato il nome di una classe nella mia lista file
-                commit.addJavaFile(file);
+
+                commit.addJavaFile(file);//Associo il file al commit
                 setLOC(tw,repository,file);
                 if(commit.getCommitObject().getFullMessage().contains("fix")
                         && !commit.getCommitObject().getFullMessage().contains("prefix")
