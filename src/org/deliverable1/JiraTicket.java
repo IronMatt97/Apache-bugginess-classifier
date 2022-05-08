@@ -1,7 +1,7 @@
 package org.deliverable1;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 public class JiraTicket {
     public JiraTicket(){
@@ -9,13 +9,11 @@ public class JiraTicket {
         this.av = new ArrayList<>();
     }
     private String key;
-    private ArrayList<Release> av;
+    private final ArrayList<Release> av;
     private Release iv;
     private Release fv;
     private Release ov;
-    private LocalDateTime creationDate;
-    private LocalDateTime resolutionDate;
-    private ArrayList<Commit> commits;
+    private final ArrayList<Commit> commits;
     private int p;
 
     public void setKey(String key)
@@ -38,19 +36,11 @@ public class JiraTicket {
     {
         this.ov=ov;
     }
-    public void setCreationDate(LocalDateTime creationDate)
-    {
-        this.creationDate=creationDate;
-    }
-    public void setResolutionDate(LocalDateTime resolutionDate)
-    {
-        this.resolutionDate=resolutionDate;
-    }
     public String getKey()
     {
         return this.key;
     }
-    public ArrayList<Release> getAV()
+    public List<Release> getAV()
     {
         return this.av;
     }
@@ -66,18 +56,10 @@ public class JiraTicket {
     {
         return this.ov;
     }
-    public LocalDateTime getCreationDate()
-    {
-        return this.creationDate;
-    }
-    public LocalDateTime getResolutionDate()
-    {
-        return this.resolutionDate;
-    }
     public void addCommit(Commit c){
         commits.add(c);
     }
-    public ArrayList<Commit> getCommits(){
+    public List<Commit> getCommits(){
         return this.commits;
     }
     public int getP(){

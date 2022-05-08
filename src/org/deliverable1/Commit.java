@@ -4,13 +4,14 @@ import org.eclipse.jgit.revwalk.RevCommit;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Commit
 {
-    private RevCommit commitObject;
+    private final RevCommit commitObject;
     private Release release;
     private LocalDateTime date;
-    private ArrayList<JavaFile> javaFiles;
+    private final ArrayList<JavaFile> javaFiles;
 
     public Commit(RevCommit rev)
     {
@@ -20,10 +21,6 @@ public class Commit
     public RevCommit getCommitObject()
     {
         return this.commitObject;
-    }
-    public void setCommitObject(RevCommit rev)
-    {
-        this.commitObject = rev;
     }
     public Release getRelease(){
         return this.release;
@@ -38,7 +35,7 @@ public class Commit
     {
         this.date = date;
     }
-    public ArrayList<JavaFile> getJavaFiles(){
+    public List<JavaFile> getJavaFiles(){
         return this.javaFiles;
     }
     public void addJavaFile(JavaFile f){

@@ -2,13 +2,14 @@ package org.deliverable1;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Release {
     private String versionNumber;
     private LocalDateTime versionDate;
 
-    private ArrayList<JavaFile> javaFiles;
-    private ArrayList<Commit> commits;
+    private final ArrayList<JavaFile> javaFiles;
+    private final ArrayList<Commit> commits;
 
     public Release(String versionNumber, LocalDateTime versionDate)
     {
@@ -48,13 +49,13 @@ public class Release {
     public void addCommit(Commit c){
         this.commits.add(c);
     }
-    public ArrayList<Commit> getCommits(){
+    public List<Commit> getCommits(){
         return this.commits;
     }
     public void addJavaFile(JavaFile f){
         this.javaFiles.add(f);
     }
-    public ArrayList<JavaFile> getJavaFiles(){
+    public List<JavaFile> getJavaFiles(){
         return this.javaFiles;
     }
 }
