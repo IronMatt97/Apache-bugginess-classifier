@@ -427,7 +427,7 @@ public class Main {
                 */
                 if(ticket.getFV().equals(ticket.getOV())) {
                     ticket.setIV(ticket.getFV());
-                    ticket.setP(0);
+                    ticket.setP(1);
                 }
                 else {
                     p = computeP(windowSize,tickets.indexOf(ticket));

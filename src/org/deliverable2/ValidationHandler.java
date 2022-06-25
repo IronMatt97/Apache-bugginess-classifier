@@ -203,10 +203,10 @@ public class ValidationHandler
 			else if(costEvaluation.equals("SENSITIVE LEARNING"))
 			{
 				c1.setMinimizeExpectedCost(false);
-				train = reweight(train,10);
+				train = reweight(train);
 			}
 			c1.setClassifier(c);
-			c1.setCostMatrix(createCostMatrix(1.0,10.0));
+			c1.setCostMatrix(createCostMatrix());
 			try 
 			{
 				c1.buildClassifier(train);
@@ -266,20 +266,20 @@ public class ValidationHandler
 		return (count/train.size());
 	}
 	
-	private static CostMatrix createCostMatrix(double weightFalsePositive, double weightFalseNegative)
+	private static CostMatrix createCostMatrix()
 	{//CFN = 10*CFP
 		CostMatrix costMatrix = new CostMatrix(2);
-		costMatrix.setCell(0, 0, 0.0);
-		costMatrix.setCell(1, 0, weightFalsePositive);
-		costMatrix.setCell(0, 1, weightFalseNegative);
-		costMatrix.setCell(1, 1, 0.0);
+		costMatrix.setCell(0, 0, 0.0);//Cost for true positive
+		costMatrix.setCell(1, 0, 1.0);//Cost for false positive
+		costMatrix.setCell(0, 1, 10.0);//Cost for false negative
+		costMatrix.setCell(1, 1, 0.0);//Cost for true negative
 		return costMatrix;
 	}
-	private static Instances reweight(Instances train,int cost)
+	private static Instances reweight(Instances train)
 	{//CFN = 10*CFP
 		
 		Instances train2 = new Instances(train);
-		
+		int cost = 10;
 		for(Instance i : train)
 		{
 			if(i.toString().endsWith("No"))
