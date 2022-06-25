@@ -1,0 +1,3 @@
+org.deliverable1.Main#setInfo(Lorg/deliverable1/Release;LTreeWalk;LRepository;Lorg/deliverable1/Commit;)V
+org.deliverable1.Main#setLOC(LTreeWalk;LRepository;Lorg/deliverable1/JavaFile;)V
+java.lang.String#equals(Ljava/lang/Object;)Z

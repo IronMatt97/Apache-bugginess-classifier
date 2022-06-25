@@ -1,0 +1,12 @@
+
+npython:S1192K"QDefine a constant instead of duplicating this literal "GitHub requests." 3 times.(úÉíÁøÿÿÿÿ
+špython:S1192I"}Define a constant instead of duplicating this literal "Exceeded the GitHub API rate limit; see the instructions in " 3 times.(ä‘¶Àşÿÿÿÿ
+apython:S1192C"IDefine a constant instead of duplicating this literal 'token %s' 3 times.(©ÂÅ
+ipython:S1192«"KDefine a constant instead of duplicating this literal "release/%s" 3 times.(‘ü…úÿÿÿÿ
+python:S1192J"…Define a constant instead of duplicating this literal "bk-merge-pr.py to configure an OAuth token for making authenticated " 3 times.(Ê²ù±
+Ppython:S1172¡"2Remove the unused function parameter "target_ref".(›«û«ÿÿÿÿÿ
+mpython:S3776Ã"TRefactor this function to reduce its Cognitive Complexity from 20 to the 15 allowed.(ôİÊñ
+Upython:S5754û"<Specify an exception class to catch or reraise the exception(ˆÊÉ·
+rpython:S3776‰"TRefactor this function to reduce its Cognitive Complexity from 19 to the 15 allowed.(–ñÊÒùÿÿÿÿ
+mpython:S3776å"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.(Ø¨¹Á
+lpython:S3776À"TRefactor this function to reduce its Cognitive Complexity from 24 to the 15 allowed.(œŸ²_

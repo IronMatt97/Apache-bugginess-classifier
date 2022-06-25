@@ -1,0 +1,3 @@
+org.deliverable1.Main#checkNR(Ljava/util/List;Lorg/deliverable1/Release;Lorg/deliverable1/Commit;)V
+java.lang.String#equals(Ljava/lang/Object;)Z
+java.lang.Integer#equals(Ljava/lang/Object;)Z

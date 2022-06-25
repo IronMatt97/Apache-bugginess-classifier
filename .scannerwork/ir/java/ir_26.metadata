@@ -1,0 +1,3 @@
+org.deliverable1.Main#setAffectedVersions(Lorg/deliverable1/JiraTicket;Ljava/lang/String;)V
+org.deliverable1.Main#correctJiraIV(Lorg/deliverable1/JiraTicket;)V
+java.lang.String#equals(Ljava/lang/Object;)Z

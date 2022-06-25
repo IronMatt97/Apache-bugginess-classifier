@@ -1,0 +1,3 @@
+org.deliverable1.Main#computeMetrics()V
+org.deliverable1.Main#setJavaFilesInfo(Lorg/deliverable1/Release;)V
+org.deliverable1.Main#checkAffectedVersionsForBuggyness()V

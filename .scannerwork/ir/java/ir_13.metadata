@@ -1,0 +1,6 @@
+org.deliverable1.Main#setBuggyness(Lorg/deliverable1/Release;Lorg/deliverable1/Commit;)V
+null
+java.io.File#<init>(Ljava/lang/String;)V
+org.deliverable1.Main#analyzeDiffs(Ljava/util/List;Lorg/deliverable1/Release;)V
+org.deliverable1.Main#getDiffs(LRevCommit;LRepository;)Ljava/util/List;
+java.io.File#instance-init#

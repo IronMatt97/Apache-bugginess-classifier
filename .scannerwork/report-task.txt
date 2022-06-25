@@ -1,0 +1,7 @@
+organization=ironmatt97
+projectKey=IronMatt97_ISW2-2122
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.28905
+dashboardUrl=https://sonarcloud.io/dashboard?id=IronMatt97_ISW2-2122
+ceTaskId=AYCtUWpjNQINETUuP0qg
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AYCtUWpjNQINETUuP0qg

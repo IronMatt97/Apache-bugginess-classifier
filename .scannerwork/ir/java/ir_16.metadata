@@ -1,0 +1,3 @@
+org.deliverable1.Main#checkEquals(Lorg/deliverable1/JavaFile;Lorg/deliverable1/Release;)V
+java.lang.String#equals(Ljava/lang/Object;)Z
+java.lang.Integer#equals(Ljava/lang/Object;)Z

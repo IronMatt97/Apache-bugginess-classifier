@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="weka">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/weka.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/smote-1.0.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/weka-src.jar!/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/weka-src.jar!/src/test/java" />
+    </SOURCES>
+  </library>
+</component>

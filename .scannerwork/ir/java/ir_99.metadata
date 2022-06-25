@@ -1,0 +1,8 @@
+org.deliverable2.AccuracyController#computeAccuracy(Ljava/lang/String;Ljava/lang/String;)V
+java.util.ArrayList#<init>()V
+org.deliverable2.ValidationHandler#<init>()V
+java.util.ArrayList#instance-init#
+org.deliverable2.CSVPrinter#printMeasures(Ljava/lang/String;Ljava/util/List;)V
+org.deliverable2.AccuracyController#getSets(Ljava/lang/String;)Ljava/util/ArrayList;
+java.lang.String#format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+org.deliverable2.ValidationHandler#instance-init#

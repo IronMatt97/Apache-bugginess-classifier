@@ -1,0 +1,5 @@
+org.deliverable1.Main#setAddedAndRemovedLines(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;)[Ljava/lang/Integer;
+java.util.ArrayList#<init>()V
+java.lang.String#split(Ljava/lang/String;)[Ljava/lang/String;
+java.util.ArrayList#instance-init#
+java.util.Collections#addAll(Ljava/util/Collection;[Ljava/lang/Object;)Z

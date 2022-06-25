@@ -1,0 +1,3 @@
+org.deliverable1.Main#analyzeDiffs(Ljava/util/List;Lorg/deliverable1/Release;)V
+java.lang.String#equals(Ljava/lang/Object;)Z
+org.deliverable1.Main#checkCommAndFiles(Ljava/lang/String;Lorg/deliverable1/Release;)V

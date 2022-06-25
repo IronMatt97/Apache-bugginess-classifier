@@ -1,0 +1,615 @@
+
+$org.deliverable1.Main#generateCSV()VO
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javac c(#"60*˜
+24O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.java} }(;ôñ
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.java} }(;
+%38java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%37java.lang.String2 append(Ljava/lang/CharSequence;)*
+23*£
+25O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.java}& }(:≈¬
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.java}& }(:
+%37java.lang.String".java.lang.Integer#toString()Ljava/lang/String;*
+
+%36java.lang.Integer2
+toString()*
+24*≠
+26O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.java} }(œÃ
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.java}& }(/
+%36java.lang.Integer"4org.deliverable1.JavaFile#getNR()Ljava/lang/Integer;* 
+
+forg.deliverable1.JavaFile2getNR()*
+25*„
+27O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.java| |(ÖÇ
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.java| |(*
+%35java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+;2 append(Ljava/lang/CharSequence;)*
+26*˜
+28O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.java{ {(Dôñ
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.java{ {(D
+%34java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%33java.lang.String2 append(Ljava/lang/CharSequence;)*
+27*°
+29O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.java{& {(C√¿
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.java{& {(C
+%33java.lang.String"-java.lang.Double#toString()Ljava/lang/String;*
+
+%32java.lang.Double2
+toString()*
+28*Ω
+30O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.java{ {(ﬂ‹
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.java{& {(8
+%32java.lang.Double"<org.deliverable1.JavaFile#getAVGLOCAdded()Ljava/lang/Double;* 
+
+forg.deliverable1.JavaFile2getAVGLOCAdded()*
+29*„
+31O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaz z(ÖÇ
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaz z(*
+%31java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+;2 append(Ljava/lang/CharSequence;)*
+30*˜
+32O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javay y(Dôñ
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javay y(D
+%30java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%29java.lang.String2 append(Ljava/lang/CharSequence;)*
+31*£
+33O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javay& y(C≈¬
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javay& y(C
+%29java.lang.String".java.lang.Integer#toString()Ljava/lang/String;*
+
+%28java.lang.Integer2
+toString()*
+32*ø
+34O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javay y(·ﬁ
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javay& y(8
+%28java.lang.Integer"=org.deliverable1.JavaFile#getMaxLOCAdded()Ljava/lang/Integer;* 
+
+forg.deliverable1.JavaFile2getMaxLOCAdded()*
+33*„
+35O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javax x(ÖÇ
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javax x(*
+%27java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+;2 append(Ljava/lang/CharSequence;)*
+34*˜
+36O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaw w(Aôñ
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaw w(A
+%26java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%25java.lang.String2 append(Ljava/lang/CharSequence;)*
+35*£
+37O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaw& w(@≈¬
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaw& w(@
+%25java.lang.String".java.lang.Integer#toString()Ljava/lang/String;*
+
+%24java.lang.Integer2
+toString()*
+36*π
+38O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaw w(€ÿ
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaw& w(5
+%24java.lang.Integer":org.deliverable1.JavaFile#getLOCAdded()Ljava/lang/Integer;* 
+
+forg.deliverable1.JavaFile2getLOCAdded()*
+37*„
+39O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javav v(ÖÇ
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javav v(*
+%23java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+;2 append(Ljava/lang/CharSequence;)*
+38*˜
+40O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javau u(<ôñ
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javau u(<
+%22java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%21java.lang.String2 append(Ljava/lang/CharSequence;)*
+39*£
+41O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javau& u(;≈¬
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javau& u(;
+%21java.lang.String".java.lang.Integer#toString()Ljava/lang/String;*
+
+%20java.lang.Integer2
+toString()*
+40*Ø
+42O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javau u(—Œ
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javau& u(0
+%20java.lang.Integer"5org.deliverable1.JavaFile#getLOC()Ljava/lang/Integer;* 
+
+forg.deliverable1.JavaFile2getLOC()*
+41*„
+43O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javat t(ÖÇ
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javat t(*
+%19java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+;2 append(Ljava/lang/CharSequence;)*
+42*˜
+44O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javas s(7ôñ
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javas s(7
+%18java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%17java.lang.String2 append(Ljava/lang/CharSequence;)*
+43*π
+45O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javas s(€ÿ
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javas& s(6
+%17java.lang.String":org.deliverable1.JavaFile#getClassName()Ljava/lang/String;* 
+
+forg.deliverable1.JavaFile2getClassName()*
+44*„
+46O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javar r(ÖÇ
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javar r(*
+%16java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+;2 append(Ljava/lang/CharSequence;)*
+45*˜
+47O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaq q(Lôñ
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaq q(L
+%15java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%14java.lang.String2 append(Ljava/lang/CharSequence;)*
+46*ò
+48O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaqI q(J∫
+∑
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaq& q(K
+%14java.lang.String"-java.lang.String#valueOf(I)Ljava/lang/String;*"
+java.lang.String*
+""*
+47*Ó
+49O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaq q(ü
+ú
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaq5 q(=
+%12java.util.ArrayList"__id*'*%
+org.deliverable1.Main"
+
+releasesÓÎ
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaq5 q(H
+
+%13int"0java.util.ArrayList#indexOf(Ljava/lang/Object;)I*
+
+%12java.util.ArrayList*
+
+rorg.deliverable1.Release2indexOf(Ljava/lang/Object;)*
+48*’
+50O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javap p( x
+v
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javap p( 
+bjava.lang.String"__id*
+No*
+49*÷
+51O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javan n(!y
+w
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javan n(!
+bjava.lang.String"__id*
+Yes*
+49*ô
+53O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javam m(∑¥
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javam m("
+%11boolean"$org.deliverable1.JavaFile#isBuggy()Z* 
+
+forg.deliverable1.JavaFile2	isBuggy()*
+50
+51*≤
+54O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javal! l("’“
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javal! l(1
+%10java.util.List"7org.deliverable1.Release#getJavaFiles()Ljava/util/List;*
+
+rorg.deliverable1.Release2getJavaFiles()*
+4*º
+10Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÖ Ö(›⁄
+Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÖ& Ö(5
+%52java.lang.Integer":org.deliverable1.JavaFile#getMaxChurn()Ljava/lang/Integer;* 
+
+forg.deliverable1.JavaFile2getMaxChurn()*
+9*Æ
+55O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javak@ k(A—Œ
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javak k(B
+%9java.util.List"/java.util.ArrayList#subList(II)Ljava/util/List;*
+
+%6java.util.ArrayList*2 *
+""2subList(II)*
+3*Á
+11Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÑ Ñ(áÑ
+Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÑ Ñ(*
+%51java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+;2 append(Ljava/lang/CharSequence;)*
+10*¡
+56O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javak k(%û
+õ
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javak k(%
+%6java.util.ArrayList"__id*'*%
+org.deliverable1.Main"
+
+releasesû
+õ
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javak0 k(8
+%7java.util.ArrayList"__id*'*%
+org.deliverable1.Main"
+
+releases°û
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javak0 k(?	
+%8int"java.util.ArrayList#size()I*
+
+%7java.util.ArrayList2size()*
+55*˚
+12Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÉ É(>õò
+Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÉ É(>
+%50java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%49java.lang.String2 append(Ljava/lang/CharSequence;)*
+11*„
+57O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaj j(ÖÇ
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaj j(#
+%5java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+\n2 append(Ljava/lang/CharSequence;)*
+56*ß
+13Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÉ& É(=«ƒ
+Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÉ& É(=
+%49java.lang.String".java.lang.Integer#toString()Ljava/lang/String;*
+
+%48java.lang.Integer2
+toString()*
+12*Ë
+58O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javah h(;ò
+ï
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javah h(; 
+
+fileWriterjava.io.FileWriter"__id*
+
+%2java.io.FileWriterÔÏ
+P
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javai i(å
+%4java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*om
+kVERSION_INDEX;FILE_NAME;LOC;LOC_ADDED;MAX_LOC_ADDED;AVG_LOC_ADDED;NR;NFIX;AUTHORS;CHURN;MAX_CHURN;BUGGYNESS2 append(Ljava/lang/CharSequence;)*
+57*∑
+14Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÉ É(◊‘
+Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÉ& É(2
+%48java.lang.Integer"7org.deliverable1.JavaFile#getChurn()Ljava/lang/Integer;* 
+
+forg.deliverable1.JavaFile2
+getChurn()*
+13*ß
+59O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javah3 h(:Å
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javah( h(2
+%2java.io.FileWriter"java.io.FileWriter≈
+¬
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javah$ h(;
+%3".java.io.FileWriter#<init>(Ljava/lang/String;)V*
+
+%2java.io.FileWriter*
+
+outNamejava.lang.String*
+58*Á
+15Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÇ Ç(áÑ
+Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÇ Ç(*
+%47java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+;2 append(Ljava/lang/CharSequence;)*
+14*˚
+16Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÅ Å(>õò
+Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÅ Å(>
+%46java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%45java.lang.String2 append(Ljava/lang/CharSequence;)*
+15*ß
+17Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÅ& Å(=«ƒ
+Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÅ& Å(=
+%45java.lang.String".java.lang.Integer#toString()Ljava/lang/String;*
+
+%44java.lang.Integer2
+toString()*
+16*∑
+18Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÅ Å(◊‘
+Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÅ& Å(2
+%44java.lang.Integer"7org.deliverable1.JavaFile#getNAuth()Ljava/lang/Integer;* 
+
+forg.deliverable1.JavaFile2
+getNAuth()*
+17*Á
+19Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÄ Ä(áÑ
+Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÄ Ä(*
+%43java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+;2 append(Ljava/lang/CharSequence;)*
+18*o
+0 "h
+Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaé é(
+implicit return*Ç
+3O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javak k(Ä
+~
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javak k(
+rorg.deliverable1.Release"__id*
+""ü
+ú
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javak k(
+rorg.deliverable1.Release"
+__arrayGet*
+
+%9java.util.List*
+""*
+54
+0*Ö
+4O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javal l(Å
+
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javal l(
+forg.deliverable1.JavaFile"__id*
+""°
+û
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javal l(
+forg.deliverable1.JavaFile"
+__arrayGet*
+
+%10java.util.List*
+""*
+3
+53*Ê
+5Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaà à(àÖ
+Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaà à(+
+%57java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+\n2 append(Ljava/lang/CharSequence;)*
+4*˜
+6Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaá á(ôñ
+Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaá á((
+%56java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+bjava.lang.String2 append(Ljava/lang/CharSequence;)*
+5*Â
+7Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÜ Ü(áÑ
+Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÜ Ü(*
+%55java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+;2 append(Ljava/lang/CharSequence;)*
+6*˘
+8Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÖ Ö(Aõò
+Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÖ Ö(A
+%54java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%53java.lang.String2 append(Ljava/lang/CharSequence;)*
+7*•
+9Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÖ& Ö(@«ƒ
+Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÖ& Ö(@
+%53java.lang.String".java.lang.Integer#toString()Ljava/lang/String;*
+
+%52java.lang.Integer2
+toString()*
+8*è
+60O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javae e($y
+w
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javae e($
+%0java.lang.String"__id*
+""®
+•
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javae e(;
+%1java.lang.String"__concat*
+
+%0java.lang.String*
+_OutputMetrics.csvë
+é
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javae e(<
+outNamejava.lang.String"__id*
+
+%1java.lang.Stringx
+v
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaf f(
+bjava.lang.String"__id*
+""*
+59*˜
+20O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.java (=ôñ
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.java (=
+%42java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%41java.lang.String2 append(Ljava/lang/CharSequence;)*
+19*£
+21O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.java& (<≈¬
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.java& (<
+%41java.lang.String".java.lang.Integer#toString()Ljava/lang/String;*
+
+%40java.lang.Integer2
+toString()*
+20*±
+22O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.java (”–
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.java& (1
+%40java.lang.Integer"6org.deliverable1.JavaFile#getNFIX()Ljava/lang/Integer;* 
+
+forg.deliverable1.JavaFile2	getNFIX()*
+21*„
+23O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.java~ ~(ÖÇ
+O
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.java~ ~(*
+%39java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+;2 append(Ljava/lang/CharSequence;)*
+22B"
+org.deliverable1.Main

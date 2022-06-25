@@ -1,0 +1,4 @@
+org.deliverable1.Main#adjustIV()V
+org.deliverable1.Main#setAffectedVersions(Lorg/deliverable1/JiraTicket;Ljava/lang/String;)V
+org.deliverable1.Main#reverseList(Ljava/util/ArrayList;)Ljava/util/ArrayList;
+org.deliverable1.Main#computeP(II)Ljava/lang/Integer;

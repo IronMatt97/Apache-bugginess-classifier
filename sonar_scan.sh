@@ -1,0 +1,1 @@
+ /home/matteo/Programmi/SonarScanner/sonar-scanner-4.7.0.2747-linux/bin/sonar-scanner   -Dsonar.organization=ironmatt97   -Dsonar.projectKey=IronMatt97_ISW2-2122   -Dsonar.sources=.   -Dsonar.host.url=https://sonarcloud.io -Dsonar.java.binaries=. -X

@@ -1,0 +1,40 @@
+
+5org.deliverable1.Main#computeP(II)Ljava/lang/Integer;Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÄ Ä(#"2"5"1*³
+2Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÓ Ó("[
+Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÓ Ó(
+""*æ
+5Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÎ Î(Ÿ
+œ
+Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÎ Î(
+%0java.util.ArrayList"__id*&*$
+org.deliverable1.Main"	
+ticketsª
+§
+Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÎ Î(0!
+%1org.deliverable1.JiraTicket"
+__arrayGet*
+
+%0java.util.ArrayList*
+""³°
+Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÎ Î(7	
+%2int"#org.deliverable1.JiraTicket#getP()I*#
+!
+%1org.deliverable1.JiraTicket2getP()*	
+2
+5
+1*³
+1Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÕ Õ("[
+Q
+E/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable1/Main.javaÕ Õ($
+"":
+"":
+""B"
+org.deliverable1.Main

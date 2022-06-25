@@ -1,0 +1,11 @@
+org.deliverable1.Main#main([Ljava/lang/String;)V
+org.deliverable1.Main#generateCSV()V
+org.deliverable1.Main#getReleases()Ljava/util/ArrayList;
+org.deliverable1.Main#associateCommitToTickets()V
+org.deliverable1.Main#cloneRepository()V
+org.deliverable1.Main#retrieveJiraTickets()Ljava/util/ArrayList;
+org.deliverable1.Main#computeMetrics()V
+org.deliverable1.Main#adjustFV()V
+org.deliverable1.Main#createJavaFilesList()Ljava/util/ArrayList;
+org.deliverable1.Main#adjustIV()V
+org.deliverable1.Main#retrieveGitCommits()Ljava/util/ArrayList;

@@ -1,0 +1,686 @@
+
+Norg.deliverable2.CSVPrinter#printMeasures(Ljava/lang/String;Ljava/util/List;)VU
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (!"70*ª
+68U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (5û
+õ
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (5 
+
+fileWriterjava.io.FileWriter"__id*
+
+%1java.io.FileWriter∂≥
+V
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (¡
+%3java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*Ø¨
+©Dataset,#TrainingRelease,%Training,%Defective in training,%Defective in testing,Classifier,Balancing,Feature Selection,Sensitivity,TP,FP,TN,FN,Precision,Recall,AUC,Kappa2 append(Ljava/lang/CharSequence;)*
+67*É
+24U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java1 1(1üú
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java1 1(1
+%46java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%45java.lang.String2 append(Ljava/lang/CharSequence;)*
+23*∫
+69U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java- (4àÖ
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java" (,
+%1java.io.FileWriter"java.io.FileWriterÀ
+»
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (5
+%2".java.io.FileWriter#<init>(Ljava/lang/String;)V*
+
+%1java.io.FileWriter*
+
+outNamejava.lang.String*
+68*Ø
+25U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java1 1(0À»
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java1 1(0
+%45java.lang.String".java.lang.Integer#toString()Ljava/lang/String;*
+
+%44java.lang.Integer2
+toString()*
+24*Ω
+26U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java1 1(Ÿ÷
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java1 1(%
+%44java.lang.Integer"3org.deliverable2.Measure#getTn()Ljava/lang/Integer;*%
+#
+measureorg.deliverable2.Measure2getTn()*
+25*Ô
+27U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java0 0(ãà
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java0 0(
+%43java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+,2 append(Ljava/lang/CharSequence;)*
+26*É
+28U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java/ /(1üú
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java/ /(1
+%42java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%41java.lang.String2 append(Ljava/lang/CharSequence;)*
+27*Ø
+29U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java/ /(0À»
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java/ /(0
+%41java.lang.String".java.lang.Integer#toString()Ljava/lang/String;*
+
+%40java.lang.Integer2
+toString()*
+28*¨
+70U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (Æ
+´
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (,
+%0java.lang.String"__concat*
+
+projNamejava.lang.String*
+Measures.csvó
+î
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (-
+outNamejava.lang.String"__id*
+
+%0java.lang.String*
+69*Ω
+30U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java/ /(Ÿ÷
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java/ /(%
+%40java.lang.Integer"3org.deliverable2.Measure#getFp()Ljava/lang/Integer;*%
+#
+measureorg.deliverable2.Measure2getFp()*
+29*Ô
+31U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java. .(ãà
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java. .(
+%39java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+,2 append(Ljava/lang/CharSequence;)*
+30*É
+32U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java- -(1üú
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java- -(1
+%38java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%37java.lang.String2 append(Ljava/lang/CharSequence;)*
+31*Ø
+33U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java- -(0À»
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java- -(0
+%37java.lang.String".java.lang.Integer#toString()Ljava/lang/String;*
+
+%36java.lang.Integer2
+toString()*
+32*Ω
+34U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java- -(Ÿ÷
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java- -(%
+%36java.lang.Integer"3org.deliverable2.Measure#getTp()Ljava/lang/Integer;*%
+#
+measureorg.deliverable2.Measure2getTp()*
+33*Ô
+35U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java, ,(ãà
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java, ,(
+%35java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+,2 append(Ljava/lang/CharSequence;)*
+34*É
+36U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java+ +(/üú
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java+ +(/
+%34java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%33java.lang.String2 append(Ljava/lang/CharSequence;)*
+35*Õ
+37U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java+ +(ÈÊ
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java+ +(.
+%33java.lang.String";org.deliverable2.Measure#getSensitivity()Ljava/lang/String;*%
+#
+measureorg.deliverable2.Measure2getSensitivity()*
+36*Ô
+38U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java* *(ãà
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java* *(
+%32java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+,2 append(Ljava/lang/CharSequence;)*
+37*É
+39U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java) )(4üú
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java) )(4
+%31java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%30java.lang.String2 append(Ljava/lang/CharSequence;)*
+38*◊
+40U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java) )(Û
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java) )(3
+%30java.lang.String"@org.deliverable2.Measure#getFeatureSelection()Ljava/lang/String;*%
+#
+measureorg.deliverable2.Measure2getFeatureSelection()*
+39*Ô
+41U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java( ((ãà
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java( ((
+%29java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+,2 append(Ljava/lang/CharSequence;)*
+40*É
+42U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java' '(-üú
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java' '(-
+%28java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%27java.lang.String2 append(Ljava/lang/CharSequence;)*
+41*…
+43U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java' '(Â‚
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java' '(,
+%27java.lang.String"9org.deliverable2.Measure#getBalancing()Ljava/lang/String;*%
+#
+measureorg.deliverable2.Measure2getBalancing()*
+42*Ô
+44U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java& &(ãà
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java& &(
+%26java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+,2 append(Ljava/lang/CharSequence;)*
+43*É
+45U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java% %(.üú
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java% %(.
+%25java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%24java.lang.String2 append(Ljava/lang/CharSequence;)*
+44*À
+46U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java% %(Á‰
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java% %(-
+%24java.lang.String":org.deliverable2.Measure#getClassifier()Ljava/lang/String;*%
+#
+measureorg.deliverable2.Measure2getClassifier()*
+45*Ô
+47U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java$ $(ãà
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java$ $(
+%23java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+,2 append(Ljava/lang/CharSequence;)*
+46*É
+48U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java# #(Eüú
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java# #(E
+%22java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%21java.lang.String2 append(Ljava/lang/CharSequence;)*
+47*≠
+49U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java# #(D…∆
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java# #(D
+%21java.lang.String"-java.lang.Double#toString()Ljava/lang/String;*
+
+%20java.lang.Double2
+toString()*
+48*„
+50U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java# #(ˇ¸
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java# #(9
+%20java.lang.Double"Forg.deliverable2.Measure#getDefectInTestPercentage()Ljava/lang/Double;*%
+#
+measureorg.deliverable2.Measure2getDefectInTestPercentage()*
+49*Ô
+51U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java" "(ãà
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java" "(
+%19java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+,2 append(Ljava/lang/CharSequence;)*
+50*É
+52U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java! !(Füú
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java! !(F
+%18java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%17java.lang.String2 append(Ljava/lang/CharSequence;)*
+51*≠
+53U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java! !(E…∆
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java! !(E
+%17java.lang.String"-java.lang.Double#toString()Ljava/lang/String;*
+
+%16java.lang.Double2
+toString()*
+52*Â
+54U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java! !(Å˛
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java! !(:
+%16java.lang.Double"Gorg.deliverable2.Measure#getDefectInTrainPercentage()Ljava/lang/Double;*%
+#
+measureorg.deliverable2.Measure2getDefectInTrainPercentage()*
+53*º
+10U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java9 9(Ÿ÷
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java9 9(&
+%60java.lang.Double"3org.deliverable2.Measure#getAuc()Ljava/lang/Double;*%
+#
+measureorg.deliverable2.Measure2getAuc()*
+9*Ô
+55U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java   (ãà
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java   (
+%15java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+,2 append(Ljava/lang/CharSequence;)*
+54*Ô
+11U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java8 8(ãà
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java8 8(
+%59java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+,2 append(Ljava/lang/CharSequence;)*
+10*É
+56U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (>üú
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (>
+%14java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%13java.lang.String2 append(Ljava/lang/CharSequence;)*
+55*É
+12U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java7 7(5üú
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java7 7(5
+%58java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%57java.lang.String2 append(Ljava/lang/CharSequence;)*
+11*≠
+57U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (=…∆
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (=
+%13java.lang.String"-java.lang.Double#toString()Ljava/lang/String;*
+
+%12java.lang.Double2
+toString()*
+56*≠
+13U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java7 7(4…∆
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java7 7(4
+%57java.lang.String"-java.lang.Double#toString()Ljava/lang/String;*
+
+%56java.lang.Double2
+toString()*
+12*’
+58U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (ÒÓ
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (2
+%12java.lang.Double"?org.deliverable2.Measure#getTrainPercentage()Ljava/lang/Double;*%
+#
+measureorg.deliverable2.Measure2getTrainPercentage()*
+57*√
+14U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java7 7(ﬂ‹
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java7 7()
+%56java.lang.Double"6org.deliverable2.Measure#getRecall()Ljava/lang/Double;*%
+#
+measureorg.deliverable2.Measure2getRecall()*
+13*Ô
+59U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (ãà
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (
+%11java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+,2 append(Ljava/lang/CharSequence;)*
+58*Ô
+15U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java6 6(ãà
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java6 6(
+%55java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+,2 append(Ljava/lang/CharSequence;)*
+14*É
+16U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java5 5(8üú
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java5 5(8
+%54java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%53java.lang.String2 append(Ljava/lang/CharSequence;)*
+15*≠
+17U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java5 5(7…∆
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java5 5(7
+%53java.lang.String"-java.lang.Double#toString()Ljava/lang/String;*
+
+%52java.lang.Double2
+toString()*
+16*…
+18U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java5 5(Â‚
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java5 5(,
+%52java.lang.Double"9org.deliverable2.Measure#getPrecision()Ljava/lang/Double;*%
+#
+measureorg.deliverable2.Measure2getPrecision()*
+17*Ô
+19U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java4 4(ãà
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java4 4(
+%51java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+,2 append(Ljava/lang/CharSequence;)*
+18*s
+0 "l
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.javaC C(
+implicit return*ß
+2U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (ç
+ä
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (#
+measureorg.deliverable2.Measure"__id*
+""±
+Æ
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (#
+measureorg.deliverable2.Measure"
+__arrayGet*
+
+measuresjava.util.List*
+""*
+65
+0*Ó
+3U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java< <(åâ
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java< <(
+%67java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+\n2 append(Ljava/lang/CharSequence;)*
+2*Å
+4U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java; ;(4üú
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java; ;(4
+%66java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%65java.lang.String2 append(Ljava/lang/CharSequence;)*
+3*´
+5U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java; ;(3…∆
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java; ;(3
+%65java.lang.String"-java.lang.Double#toString()Ljava/lang/String;*
+
+%64java.lang.Double2
+toString()*
+4*ø
+6U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java; ;(›⁄
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java; ;((
+%64java.lang.Double"5org.deliverable2.Measure#getKappa()Ljava/lang/Double;*%
+#
+measureorg.deliverable2.Measure2
+getKappa()*
+5*Ì
+7U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java: :(ãà
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java: :(
+%63java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+,2 append(Ljava/lang/CharSequence;)*
+6*Å
+8U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java9 9(2üú
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java9 9(2
+%62java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%61java.lang.String2 append(Ljava/lang/CharSequence;)*
+7*´
+9U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java9 9(1…∆
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java9 9(1
+%61java.lang.String"-java.lang.Double#toString()Ljava/lang/String;*
+
+%60java.lang.Double2
+toString()*
+8*Ç
+60U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (6ûõ
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (6
+%10java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%9java.lang.String2 append(Ljava/lang/CharSequence;)*
+59*≠
+61U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (5…∆
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (5
+%9java.lang.String".java.lang.Integer#toString()Ljava/lang/String;*
+
+%8java.lang.Integer2
+toString()*
+60*∆
+62U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (‚ﬂ
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (*
+%8java.lang.Integer"8org.deliverable2.Measure#getRelease()Ljava/lang/Integer;*%
+#
+measureorg.deliverable2.Measure2getRelease()*
+61*Ó
+63U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (äá
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (
+%7java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+,2 append(Ljava/lang/CharSequence;)*
+62*Å
+64U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (+ùö
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (+
+%6java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%5java.lang.String2 append(Ljava/lang/CharSequence;)*
+63*É
+20U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java3 3(1üú
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java3 3(1
+%50java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+
+%49java.lang.String2 append(Ljava/lang/CharSequence;)*
+19*ƒ
+65U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (‡›
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (*
+%5java.lang.String"7org.deliverable2.Measure#getDataset()Ljava/lang/String;*%
+#
+measureorg.deliverable2.Measure2getDataset()*
+64*Ø
+21U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java3 3(0À»
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java3 3(0
+%49java.lang.String".java.lang.Integer#toString()Ljava/lang/String;*
+
+%48java.lang.Integer2
+toString()*
+20*Ω
+22U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java3 3(Ÿ÷
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java3 3(%
+%48java.lang.Integer"3org.deliverable2.Measure#getFn()Ljava/lang/Integer;*%
+#
+measureorg.deliverable2.Measure2getFn()*
+21*Ó
+67U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (ãà
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java (
+%4java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+\n2 append(Ljava/lang/CharSequence;)*
+2*Ô
+23U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java2 2(ãà
+U
+K/home/matteo/Documenti/Workspaces/ISW2/src/org/deliverable2/CSVPrinter.java2 2(
+%47java.io.Writer"Kjava.io.OutputStreamWriter#append(Ljava/lang/CharSequence;)Ljava/io/Writer;*"
+ 
+
+fileWriterjava.io.FileWriter*
+,2 append(Ljava/lang/CharSequence;)*
+22:
+projNamejava.lang.String:
+measuresjava.util.ListB"
+org.deliverable2.CSVPrinter

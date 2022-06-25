@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="slf4j-simple-1.7.30">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-simple-1.7.30.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.7.30.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/org.eclipse.jgit-5.11.0.202103091610-r.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/java-json.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/java-json.jar!/" />
+    </SOURCES>
+  </library>
+</component>

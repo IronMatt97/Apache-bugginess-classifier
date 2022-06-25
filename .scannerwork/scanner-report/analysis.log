@@ -1,0 +1,75 @@
+SonarCloud plugins:
+  - IaC Code Quality and Security 1.7.0.2012 (iac)
+  - PL/SQL Code Quality and Security 3.7.0.4372 (plsql)
+  - Scala Code Quality and Security 1.9.0.3429 (sonarscala)
+  - C# Code Quality and Security 8.38.0.46746 (csharp)
+  - Vulnerability Analysis 9.4.1.15913 (security)
+  - Java Code Quality and Security 7.11.0.29148 (java)
+  - HTML Code Quality and Security 3.6.0.3106 (web)
+  - Flex Code Quality and Security 2.7.0.2865 (flex)
+  - XML Code Quality and Security 2.5.0.3376 (xml)
+  - Text file Code Quality and Security 1.0.0.120 (text)
+  - VB.NET Code Quality and Security 8.38.0.46746 (vbnet)
+  - Swift Code Quality and Security 4.5.0.5305 (swift)
+  - CFamily Code Quality and Security 6.33.0.46593 (cpp)
+  - Python Code Quality and Security 3.13.0.9611 (python)
+  - Dataflow Bug Detection 1.2.0.1485 (dbd)
+  - Go Code Quality and Security 1.9.0.3429 (go)
+  - JaCoCo 1.1.1.1157 (jacoco)
+  - Kotlin Code Quality and Security 2.9.0.1147 (kotlin)
+  - Mercurial 1.1.2 (scmmercurial)
+  - Dataflow Bug Detection Rules for Java 1.2.0.1485 (dbdjavafrontend)
+  - T-SQL Code Quality and Security 1.6.0.4844 (tsql)
+  - Apex Code Quality and Security 1.9.0.3429 (sonarapex)
+  - JavaScript/TypeScript/CSS Code Quality and Security 9.2.0.17876 (javascript)
+  - Ruby Code Quality and Security 1.9.0.3429 (ruby)
+  - Vulnerability Rules for C# 9.4.1.15913 (securitycsharpfrontend)
+  - Vulnerability Rules for Java 9.4.1.15913 (securityjavafrontend)
+  - License for SonarLint 8.0.0.28905 (license)
+  - Vulnerability Rules for JS 9.4.1.15913 (securityjsfrontend)
+  - COBOL Code Quality 5.0.0.5433 (cobol)
+  - Vulnerability Rules for Python 9.4.1.15913 (securitypythonfrontend)
+  - PHP Code Quality and Security 3.23.1.8766 (php)
+  - ABAP Code Quality and Security 3.10.0.3628 (abap)
+  - Configuration detection fot Code Quality and Security 1.2.0.267 (config)
+  - Vulnerability Rules for PHP 9.4.1.15913 (securityphpfrontend)
+Global server settings:
+  - email.from=noreply@sonarcloud.io
+  - email.fromName=SonarCloud
+  - email.prefix=[SonarCloud]
+  - node_10_end_of_support_date=1620604800000
+  - node_10_grace_period_termination_date=1621814400000
+  - search_users_require_auth_start_date=1651622399000
+  - search_users_require_auth_termination_date=1651708799000
+  - sonar.auth.bitbucket.enabled=true
+  - sonar.auth.microsoft.enabled=true
+  - sonar.core.id=1BD809FA-AWHW8ct9-T_TB3XqouNu
+  - sonar.core.serverBaseURL=https://sonarcloud.io
+  - sonar.core.startTime=2022-05-09T10:45:27+0200
+  - sonar.dbcleaner.weeksBeforeDeletingAllSnapshots=260
+  - sonar.dbcleaner.weeksBeforeKeepingOnlyOneSnapshotByMonth=4
+  - sonar.dbcleaner.weeksBeforeKeepingOnlyOneSnapshotByWeek=1
+  - sonar.global.exclusions=**/build-wrapper-dump.json
+  - sonar.lf.enableGravatar=true
+  - sonar.lf.logoWidthPx=105
+  - sonar.maintenance_mode.link=https://sonarcloud.statuspage.io/incidents/66vlr4dc3jwy
+  - sonar.maintenance_mode.message=Results of analyses performed prior to 6:15am CET may not be available yet and will be progressively provided throughout coming hours. Results of analysis performed after 8:00am CET are available.
+  - sonar.maintenance_mode.start_date=2022-03-26T23:00:00.000+01:00
+  - sonar.organizations.anyoneCanCreate=true
+  - sonar.organizations.createPersonalOrg=true
+  - sonar.plsql.file.suffixes=sql,tab,pkb
+  - sonar.tsql.file.suffixes=.tsql
+Project server settings:
+  - sonar.coverage.exclusions="""/"""
+Project scanner properties:
+  - sonar.host.url=https://sonarcloud.io
+  - sonar.java.binaries=.
+  - sonar.organization=ironmatt97
+  - sonar.projectBaseDir=/home/matteo/Documenti/Workspaces/ISW2
+  - sonar.projectKey=IronMatt97_ISW2-2122
+  - sonar.scanner.app=ScannerCLI
+  - sonar.scanner.appVersion=4.7.0.2747
+  - sonar.sourceEncoding=UTF-8
+  - sonar.sources=.
+  - sonar.verbose=true
+  - sonar.working.directory=/home/matteo/Documenti/Workspaces/ISW2/.scannerwork
