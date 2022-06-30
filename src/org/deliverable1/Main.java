@@ -417,6 +417,9 @@ public class Main {
         int predictedIV;
         int fv;
         int ov;
+        int iv;
+        int num;
+        int den;
         for (JiraTicket ticket : reverseList(tickets)){
             if(ticket.getIV()==null){
                 /*
@@ -439,6 +442,23 @@ public class Main {
                 }
                 //Ottenuto l'IV calcolo le nuove AV
                 setAffectedVersions(ticket,ticket.getIV().getVersionNumber());
+            }
+            else{
+                /*
+                 * Se l'IV è disponibile significa che bisogna calcolare solo la P, per poterla
+                 * utilizzare nei ticket successivi.
+                 */
+                fv = releases.indexOf(ticket.getFV());
+                ov = releases.indexOf(ticket.getOV());
+                iv = releases.indexOf(ticket.getIV());
+                num = fv - iv;
+                den = fv - ov;
+                if (num == 0)
+                    num = 1;
+                if (den == 0)
+                    den = 1;
+                ticket.setP(num/den);
+                //Le AV qui non bisogna calcolarle dato che l'IV appunto era presente.
             }
         }
     }
