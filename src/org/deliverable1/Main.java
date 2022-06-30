@@ -464,7 +464,7 @@ public class Main {
             }
         }
         if (countedTickets == 0)
-            return p;
+            return 1;
         else
             return p/countedTickets;//ritorna la media dei p sui ticket contati
     }
