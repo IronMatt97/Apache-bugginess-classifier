@@ -36,7 +36,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Main {
-    static final String PROJECTNAME = "BOOKKEEPER";
+    static final String PROJECTNAME = "AVRO";
     static ArrayList<Release> releases;
     static ArrayList<JiraTicket> tickets;
     static ArrayList<Commit> commits;
@@ -45,7 +45,7 @@ public class Main {
     static final String LINES_SPLITTING_FORMAT = "\r\n|\r|\n";
     static final String JAVAFILE_EXTENTION = ".java";
     static final String SEPARATOR = "/";
-    static final String INITIAL_PATH = "/home/matteo/Documenti/Workspaces/ISW2/"+PROJECTNAME;
+    static final String INITIAL_PATH = "/home/matteo/Documenti/Workspaces/ISW2-2122/"+PROJECTNAME;
     static final String PATH = INITIAL_PATH + SEPARATOR + PROJECTNAME.toLowerCase()+"/.git";
     static final String REPO_PATH = "https://github.com/apache/"+PROJECTNAME.toLowerCase()+".git";
 
